@@ -17,3 +17,9 @@ services:
     container_name: ddos
     links:
       proxy_pool
+  attacker:
+    build: ./ddos
+    container_name: attacker
+    depend_on:
+      - proxy_redis
+      - proxy_pool

